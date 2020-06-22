@@ -40,17 +40,18 @@ tree.addLeftNode(tree.root.left.left.left, 560)
 tree.addRightNode(tree.root.right.right.right, 810)
 
 
-
-//O(n) solution since it's a basic DFS approach
+//O(n) solution w a basic DFS approach
 
 //A helper function to keep scanning the left and right sides of the trees
 //until a null is hit, at which the greatest height will be returned
-function max(root, sum) {
+function max(root, level) {
+    //Once a null node is hit, return the level
     if (root === null) {
-        return sum
+        return level
     }
 
-    return Math.max(max(root.left, sum + 1), max(root.right, sum + 1))
+    //Every time you go right or left, increase the level by 1
+    return Math.max(max(root.left, level + 1), max(root.right, level + 1))
 }
 
 return max(tree.root, 0)

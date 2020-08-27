@@ -40,13 +40,14 @@ tree.addLeftNode(tree.root.left.left.left, 560)
 tree.addRightNode(tree.root.right.right.right, 810)
 
 
-//O(n) solution w a basic DFS approach
+//O(n) solution where n is the number of nodes in the binary tree
+//We use a basic DFS approach
 
 //A helper function to keep scanning the left and right sides of the trees
 //until a null is hit, at which the greatest height will be returned
 function max(root, level) {
     //Once a null node is hit, return the level
-    if (root === null) {
+    if (!root) {
         return level
     }
 
